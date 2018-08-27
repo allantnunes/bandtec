@@ -1,0 +1,23 @@
+
+<html>
+    <head>
+        <title>Teste Prompt</title>
+    </head>
+    <body>
+        <button onclick="minhaFuncao()">Clique Aqui</button>
+        <p id="demo">Cade seu nome??</p>
+        
+        <script>
+            function minhaFuncao(){
+                var nome;
+                nome = prompt("Digite seu nome:");
+                if(nome == "" || nome == null){
+                    alert("Você precisa digitar um nome, brother :/");
+                    minhaFuncao();
+                }
+                document.getElementById("demo").innerHTML = nome;
+            }
+        </script>
+    </body>
+
+</html>

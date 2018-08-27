@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>2. Luiz Cade Peixe anda se atrasando muito para seus
+            compromissos. Ajude ele a saber o dia e a hora mais rapidamente.
+            Crie um programa que exiba a data e hora atuais do computador 
+            assim que for iniciado. Conceitos: uso de função da linguagem de 
+            programação (no caso, new Date() e new Date().toLocaleString()).
+        </h2>
+        <p id="data"></p>
+    <script>
+        var d = new Date();
+        document.getElementById("data").innerHTML = d;
+        alert(d.toLocaleString());
+    </script>
+    </body>
+</html>
