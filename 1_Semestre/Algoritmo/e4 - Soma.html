@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h3>E4 - Soma de números</h3>
+    <p>Faça um programa que leia 3 números e efetue a somado entre eles. 
+        Depois exiba o resultado da soma e os números digitados.</p>
+    
+    <label>N1:</label><input type="text" id="n1"><br>
+    <label>N2:</label><input type="text" id="n2"><br>
+    <label>N3:</label><input type="text" id="n3"><br>
+    <button onclick="somar()">Somar</button>
+</body>
+<script>
+    function somar(){
+    var n1 = parseFloat(document.getElementById("n1").value);
+    var n2 = parseFloat(document.getElementById("n2").value);
+    var n3 = parseFloat(document.getElementById("n3").value);
+    var total = n1 + n2 + n3;
+
+    document.write("A some de "+n1+"+"+n2+"+"+n3+"<br>");
+    document.write("É igual a: "+total);
+    }
+</script>
+</html>

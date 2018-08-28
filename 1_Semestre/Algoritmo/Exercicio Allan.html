@@ -1,0 +1,72 @@
+<html>
+    <!-- Começo do Script -->
+    <script>
+        //Solicitação do nome do usuário via PROMPT
+        var nome = prompt("Olá, por favor digite seu nome:");
+        /*Validação para verificar se o usuário escreveu algo.
+          "WHILE = ENQUANTO". 
+          ENQUANTO a variável NOME for VAZIA ou NULLA, vai subir o PROMPT de novo.
+        */
+        while(nome == null || nome == ""){
+            nome = prompt("Você precisa digitar o seu nome :/");
+        }
+        
+        //Após receber o nome, irá disponibilizar o formulário para o usuário preencher
+        document.write("Olá "+nome+", por favor, preencha seus dados:");
+        
+        //Função para gerar o relatório final, usando document.write
+        function gerarRelatorio(){
+            var sexo = document.getElementsByName("sexo");
+            var deficiencia;
+            var cpf = document.getElementById("cpf").value;
+            
+            /*FOREACH para verificação do VETOR SEXO(RadioButtons).
+            Já que ele tem mais de um valor, ele precisa criar um vetor. */
+            for(var i = 0, length = sexo.length; i < length; i++){
+                if(sexo[i].checked){
+                    var qualSexo = sexo[i].value;
+                }
+            }
+            
+            //Validação para ver se o CHECKBOX DEFICIENCIA está marcado ou não.
+            if(document.getElementById("deficiencia").checked){
+                deficiencia = "Portador de deficiência.";
+            }else{
+                deficiencia = "NÃO é portador de deficiência.";
+            }
+                        
+            document.write("<h3> Dados do usuário </h3><br>");
+            document.write("Nome: "+nome+"<br>");
+            document.write(deficiencia+"<br>");
+            document.write("Sexo: "+qualSexo+"<br>");
+            document.write("CPF: "+cpf+"<br>");
+        }
+    </script>
+    <!--Fim do Script-->
+
+    <!--Começo do HTML-->
+    <head>
+        <title>Exercício Allan</title>
+    </head>
+    <body>
+        <form>
+            <br>
+            <!-- RADIOBUTTON -->
+            Qual seu sexo?<br>
+            <input type="radio" name="sexo" value="Masculino">Masculino<br>
+            <input type="radio" name="sexo" value="Feminino">Feminino<br><br>
+
+            <!-- CHECKBOX -->
+            Possuí alguma deficiencia?<br>
+            <input type="checkbox" id="deficiencia">Sim
+
+            <br><br>
+            <!-- INPUT TEXT -->
+            CPF: <input type="text" id="cpf">
+
+            <!-- BOTÃO COM A FUNÇÃO gerarRelatorio() -->
+            <button onclick="gerarRelatorio()">Gerar Relatório</button>
+        </form>
+    </body>
+    <!-- OBS: a tag <br> serve para ir para a próxima linha-->
+</html>

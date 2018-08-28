@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>e5 - idade</title>
+</head>
+<script>
+    function verificar() {
+        var idade = document.getElementById("idade").value;
+        var sexo = document.getElementsByName("sexo");
+
+        for (var i = 0, length = sexo.length; i < length; i++) {
+            if (sexo[i].checked) {
+                var qualSexo = sexo[i].value;
+            }
+        }
+
+        if (idade >= 18) {
+            if (qualSexo == "Masculino") {
+                document.write("Você é um homem maior de idade");
+            } else {
+                document.write("Você é uma mulher maior de idade");
+            }
+        } else {
+            if (qualSexo == "Masculino") {
+                document.write("Você é um homem menor de idade");
+            } else {
+                document.write("Você é uma mulher menor de idade");
+            }
+        }
+    }
+</script>
+
+<body>
+    <h3>e5 - idade</h3>
+    <p>Crie um programa que: * Uma pessoa deve informar sua idade e sexo * Caso a idade for maior ou igual a 18: - Caso o
+        sexo for "m", exibir a mensagem "Você é um homem maior de idade" - Caso o sexo for "f", exibir "Você é uma mulher
+        maior de idade" * Caso a idade for menor que 18, exibir mensagens semelhantes as anteriores, mas com final "... menor
+        de idade"</p>
+
+    <form>
+        <br> Qual seu sexo?<br>
+        <input type="radio" name="sexo" value="Masculino">Masculino<br>
+        <input type="radio" name="sexo" value="Feminino">Feminino<br><br>
+
+        <label>Informe sua idade:</label>
+        <input type="text" id="idade"><br>
+
+        <button onclick="verificar()">Verificar</button>
+    </form>
+</body>
+
+</html>
