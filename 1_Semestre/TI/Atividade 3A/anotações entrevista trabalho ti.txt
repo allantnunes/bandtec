@@ -1,0 +1,19 @@
+ 1) clicava no icone e entrava com o seu ID (todo o entrevistador, depois do treinamento, tinha um ID) 2) abria uma janela perguntando se voce queria gravar uma entrevista nova, voce colocava OK, 3) ia para a aba de identificaçao do entrevistado da pesquisa (nome, numero de ID dele, data de nascimento, dia da entrevista, e dia dos dados coletados (sempre um dia anterior ao dia da pesquisa porque é recoerdatorio de 24 horas, certo?)
+3) preenchido isso, automaticamente abria a proxima aba sobre dados especificos como peso, altura, se tinha restriçao (aí abria uma aba com opçoes como diabetetes, vegano, dieta pra emagrecimento - voce podia selecionar quantos quisesse ou digitar no espaço de 'outros')
+4) abria a aba pra entrevista que tinha as refeiçoes pra serem selecionadas e voce ia digitando os alimentos e os horarios
+5) ia pra uma versão FINAL dessa aba dos alimentos, onde voce selecionava ou alimentava o banco de dados
+por exemplo, eu podia cadastrar um novo alimento ou uma nova receita
+e salvar ela (por isso que é chamado de validçao por paises, porque no original frances nao tem feijoada - e voce alimentar pra poder ser usado na porra do mundo todo como o software oficial pra esse tipo de coleta de dados de alimentaçao, e aí eu posso comparar os meus achados de pesquisa do brasil com os do japao, porque é a mesma plataforma, com o mesmo rigor de coleta de dados!!)
+e voce pode selecionar as receitas que ja tem no banco de dados e altera-las, tipo seleciono o macarrao a bolonhesa, e excluo a cebola do molho
+ISSO É MUITO PERFEITO! PORQUE DIMINUI ERROS DE APROXIMAÇAO - por isso que vai ser o padrao-ouro (o top dos tops)
+enfim, cada alimento aparece varias abas consecutivas pra ir especificando marca, quantidade consumida, se era integral ou desnatado
+no final, tem uma aba extra pra suplementos alimentares (toma vitamina D? toma whey?)
+porque no banco de alimentos, ele armazena as infos pra fazer calculo da dieta e poder estudar ex: risco de diabetes
+a aba final sao valores de calorias comparados com o recomendado pra pessoa (por isso pergunta peso e altura no comecinho), valores de carboidratos, proteina e lipideos
+e se tiver algo muiiito gritante de errado, ficava vermelho e te redirecionava pra possiveis fontes de erro de digitaçao
+tipo deu 800 kcal vinda de lipideo - será que o cara comeu tudo isso ou voce selecionou 20 colheres de manteiga ao inves de 2?
+ele é o unico sftware que tem esses mecanismos pra evitar o erro humano de digitaçao e etc
+por isso ele vai virar o padrao-ouro e tem todo o treinamento para ele
+aí voce salva essas infos
+pode exportar a base de dados
+fazer backup
