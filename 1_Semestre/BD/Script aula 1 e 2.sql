@@ -99,3 +99,28 @@ select * from Aluno;
 delete from Aluno where ra = 52056;
 
 drop table Aluno;
+
+create table Curso (
+	codigo int primary key auto_increment,
+    nome varchar(20),
+    coordenador varchar(20)
+    ) auto_increment = 100;
+    
+insert into curso(nome, coordenador)
+	values ('ADS', 'Gerson'),
+			('BD', 'Marise'),
+			('Redes', 'Alex');
+    
+alter table Aluno add codCurso int,
+	add foreign key(codCurso) references curso(codigo);    
+
+update Aluno set codCurso = 100
+	where ra in (52000, 52003, 52018);
+    
+update Aluno set codCurso = 101
+	where ra = 52001;
+    
+update Aluno set codcurso = 102
+	where ra in (52056, 52057);
+    
+select * from Aluno, curso where codCurso = codigo;

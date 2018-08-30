@@ -1,6 +1,13 @@
- 1) clicava no icone e entrava com o seu ID (todo o entrevistador, depois do treinamento, tinha um ID) 2) abria uma janela perguntando se voce queria gravar uma entrevista nova, voce colocava OK, 3) ia para a aba de identificaçao do entrevistado da pesquisa (nome, numero de ID dele, data de nascimento, dia da entrevista, e dia dos dados coletados (sempre um dia anterior ao dia da pesquisa porque é recoerdatorio de 24 horas, certo?)
+ 1) clicava no icone e entrava com o seu ID (todo o entrevistador, depois do treinamento, tinha um ID) 
+
+2) abria uma janela perguntando se voce queria gravar uma entrevista nova, voce colocava OK, 
+
+3) ia para a aba de identificaçao do entrevistado da pesquisa (nome, numero de ID dele, data de nascimento, dia da entrevista, e dia dos dados coletados (sempre um dia anterior ao dia da pesquisa porque é recoerdatorio de 24 horas, certo?)
+
 3) preenchido isso, automaticamente abria a proxima aba sobre dados especificos como peso, altura, se tinha restriçao (aí abria uma aba com opçoes como diabetetes, vegano, dieta pra emagrecimento - voce podia selecionar quantos quisesse ou digitar no espaço de 'outros')
+
 4) abria a aba pra entrevista que tinha as refeiçoes pra serem selecionadas e voce ia digitando os alimentos e os horarios
+
 5) ia pra uma versão FINAL dessa aba dos alimentos, onde voce selecionava ou alimentava o banco de dados
 por exemplo, eu podia cadastrar um novo alimento ou uma nova receita
 e salvar ela (por isso que é chamado de validçao por paises, porque no original frances nao tem feijoada - e voce alimentar pra poder ser usado na porra do mundo todo como o software oficial pra esse tipo de coleta de dados de alimentaçao, e aí eu posso comparar os meus achados de pesquisa do brasil com os do japao, porque é a mesma plataforma, com o mesmo rigor de coleta de dados!!)
