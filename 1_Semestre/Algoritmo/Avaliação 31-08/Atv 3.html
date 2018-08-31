@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+
+<head>
+   
+    <title>Atividade 3</title>
+    <script>
+        function descPers() {
+            document.write("Nas <u>Crônicas de Nárnia</u>, o(a) personagem "+document.getElementById("nome").value+" é sensacional por que é:<br><br>1.<b>"+document.getElementById("carac1").value+"</b><br>2.<u>"+document.getElementById("carac2").value+"</u><br>3.<i>"+document.getElementById("carac3").value+"</i>");   
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <h3>Crônicas de Nárnia</h3><br>
+
+        <label>Nome do personagem: </label><input type="text" id="nome"><br>
+        <label>Característica 1: </label><input type="text" id="carac1"><br>
+        <label>Característica 2: </label><input type="text" id="carac2"><br>
+        <label>Característica 3: </label><input type="text" id="carac3"><br><br>
+
+        <button onclick="descPers()">Descrever Personagem</button><br><br>
+
+    </form>
+    <p id="output"></p>
+</body>
+
+</html>
