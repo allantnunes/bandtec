@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>e6 - área triangulo</title>
+</head>
+<body>
+    <script>
+        function calcularArea(){
+            var base = parseFloat(document.getElementById("base").value); 
+            var altura = parseFloat(document.getElementById("altura").value);
+
+            var area = Math.abs((base * altura)/2);
+            if(isNaN(area)){
+                alert("Algo deu errado. Ou você digitou uma String ou algo longe de ser um número... Tente novamente");
+                document.getElementById("output").innerHTML = "Tente novamente :/<br><button onclick='location.reload()'>Resetar programar</button>";
+
+            }else{
+                document.getElementById("output").innerHTML = "<b><u>Área: "+area+"</u></b>";
+            }
+            
+        }
+    </script>
+    <h3>e6 - área triangulo</h3>
+    <p>Desenvolva um programa para calcular a área de um 
+    triângulo e mostrar o resultado. Para isso o usuário 
+    deverá digitar os valores da base e da altura.<br><br>
+
+    ÁREA = ( BASE * ALTURA ) / 2 <br><br>          
+            
+        Usar o ADIT<br>
+            
+        1) ICA<br>
+            
+        2) DAT<br>
+            
+        3) JS<br>
+            
+        4) Testes<br></p>
+        <hr><br>
+
+    <p>Preencha os campos para calcular a área do triângulo:</p><br>
+    <label>Base: </label><input type="text" id="base" required><br>
+    <label>Altura: </label><input type="text" id="altura" required><br><br>
+
+    <p id="output"></p>
+    <br>
+    <button onclick="calcularArea()">Calcular Área</button>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>e8 - Notas do Daniel</title>
+</head>
+
+<body>
+    <script>
+        function calcularNotas() {
+            var mediaMinima = parseFloat(16.00);
+            
+            var mat1 = parseFloat(6.0);
+            var mat2 = parseFloat(0);
+
+            var por1 = parseFloat(6.5);
+            var por2 = parseFloat(0);
+
+            var his1 = parseFloat(7.0);
+            var his2 = parseFloat(0);
+
+            var art1 = parseFloat(10.0);
+            var art2 = parseFloat(0);
+
+            var edu1 = parseFloat(6.3);
+            var edu2 = parseFloat(0);
+
+            var nota1semestre = new Array (mat1, por1, his1, art1, edu1);
+            var nota2semestre = new Array (mat2, por2, his2, art2, edu2);
+
+            for(var i = 0; i < nota1semestre.length; i++){
+                nota2semestre[i] = parseFloat(mediaMinima - nota1semestre[i]);
+            }
+
+            document.getElementById("output").innerHTML = "<table><tr><th>Matéria</th><th>Nota 1º Semestre</th><th>Nota 2º Semestre</th></tr><tr><td>Matemática</td><td>"+mat1+"</td><td style='color: #ff0000'>"+nota2semestre[0]+"</td></tr><tr><td>Português</td><td>"+por1+"</td><td style='color: #ff0000'>"+nota2semestre[1]+"</td></tr><tr><td>História</td><td>"+his1+"</td><td style='color: #ff0000'>"+nota2semestre[2]+"</td></tr><tr><td>Artes</td><td>"+art1+"</td><td style='color: #ff0000'>"+nota2semestre[3]+"</td></tr><tr><td>Educação Física</td><td>"+edu1+"</td><td style='color: #ff0000'>"+nota2semestre[4]+"</td></tr></table>"
+            
+        }
+    </script>
+    <!-- "<table>
+        <tr>
+            <th>Matéria</th>
+            <th>Nota 1º Semestre</th>
+            <th>Nota 2º Semestre</th>
+            <th>Média</th>
+        </tr>
+        <tr>
+            <td>Matemática</td>
+            <td>"+mat1+"</td>
+            <td>"+mat2+"</td>
+            <td>"+medmat+"</td>
+        </tr>
+        <tr>
+            <td>Português</td>
+            <td>"+por1+"</td>
+            <td>"+por2+"</td>
+            <td>"+medpor+"</td>
+        </tr>
+        <tr>
+            <td>História</td>
+            <td>"+his1+"</td>
+            <td>"+his2+"</td>
+            <td>"+medhis+"</td>
+        </tr>
+        <tr>
+            <td>Artes</td>
+            <td>"+art1+"</td>
+            <td>"+art2+"</td>
+            <td>"+medart+"</td>
+        </tr>
+        <tr>
+            <td>Educação Física</td>
+            <td>"+edu1+"</td>
+            <td>"+edu2+"</td>
+            <td>"+mededu+"</td>
+        </tr>
+    </table>" -->
+    <h3>e8 - Notas do Daniel</h3>
+
+    <p>Daniel estuda ensino fundamental numa escola particular. O pai dele prometeu que daria uma bicicleta no fim do ano
+        se ele fechasse o ano com no mínimo 8,0 de média anual em cada matéria. As notas de Daniel no 1º semestre foram:<br><br>        ·
+        6,0 de matemática<br> · 6,5 de português<br> · 7,0 de história<br> · 10,0 de artes<br> · 6,3 de educação física<br>        Com
+        base nos valores citados, faça um programa que ajude Daniel mostrando na tela as notas mínimas, de cada matéria,
+        que ele deve tirar neste 2º semestre para fechar o ano com no mínimo 8,0.<br><br> Faça:
+
+        <br> 1) ICA<br> 2) DAT<br> 3) JS<br> 4) Teste<br>
+        <hr>
+    </p>
+
+    <button onclick="calcularNotas()">Calcular Notas</button>
+
+    <p id="output"></p>
+
+</body>
+
+</html>

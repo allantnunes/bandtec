@@ -1,7 +1,3 @@
--- cria um banco de dados chamado bandtec
--- se esse banco já existe, não precisa executar este comando
-create database bandtec;
-
 -- seleciona o banco de dados bandtec
 use bandtec;
 
@@ -27,100 +23,53 @@ insert into Aluno
            (52057, 'Wesley', 'União Verde'),
            (52018, 'Gabriela', 'Capão Redondo');
 
--- Visualizar apenas os nomes dos alunos
-select nome from Aluno;
-
--- Visualizar apenas o nome e o ra dos alunos
-select nome, ra from Aluno;
-
--- Visualizar todos os dados dos alunos que são do bairro 'Capão Redondo'
-select * from Aluno where bairro = 'Capão Redondo';
-
--- Visualizar todos os dados dos alunos de ra maior do que 52050
-select * from Aluno where ra > 52050;
-
--- Visualizar todos os dados dos alunos cujo bairro seja 'Colônia'
-select * from Aluno where bairro = 'Colônia';
-
--- Visualizar apenas o ra dos alunos cujo bairro seja 'Colônia'
-select ra from Aluno where bairro = 'Colônia';
-
--- Visualizar todos os dados dos alunos cujo ra seja menor do que 52050
-select * from Aluno where ra < 52050;
-
--- Visualizar todos os dados dos alunos cujo ra seja menor ou igual a 52018
-select * from Aluno where ra <= 52018;
-
--- Visualizar todos os dados dos alunos cujo ra seja menor do que 52018
-select * from Aluno where ra < 52018;
-
--- Visualizar todos os dados dos alunos cujo nome comece com a letra W
-select * from Aluno where nome like 'W%';
-
--- Visualizar todos os dados dos alunos cujo bairro comece com a letra C
-select * from Aluno where bairro like 'C%';
-
--- Visualizar todos os dados dos alunos cujo nome comece com a letra A
-select * from Aluno where nome like 'A%';
-
--- Visualizar todos os dados dos alunos cujo nome tenha a letra e como segunda letra
-select * from Aluno where nome like '%e';
-
--- Visualizar todos os dados dos alunos cujo nome termine com a letra o
-select * from Aluno where bairro like '%o';
-select * from Aluno where nome like '_l%';
-select * from Aluno where nome like '__l%';
-select * from Aluno where nome like '%a_';
-select * from Aluno where nome like '%e%';
-
-select * from Aluno order by bairro;
-select * from Aluno order by bairro desc;
-select * from Aluno order by bairro asc;
-select * from Aluno order by ra desc;
-
-select * from Aluno where bairro <> 'Capão Redondo';
-
-select * from Aluno;
-select * from Aluno where ra != 52003;
-
--- atualiza o aluno de ra 52018, de forma que o bairro passe a ser 'Grajau'
-update Aluno set bairro = 'Grajau' where ra= 52018;
-
--- atualiza o aluno de ra 52001 de forma que o nome seja alterado para 'Allan Tavares'
--- e o bairro seja alterado para 'Casa Verde Baixa'
-update Aluno set nome='Allan Tavares', 
-                 bairro='Casa Verde Baixa'
-                 where ra = 52001;
-                 
-select * from Aluno where nome like '%Tavares';                 
+-- Visualizando os dados da tabela Aluno
 select * from Aluno;
 
--- excluir o registro do aluno de ra 52056
-delete from Aluno where ra = 52056;
-
-drop table Aluno;
-
-create table Curso (
-	codigo int primary key auto_increment,
-    nome varchar(20),
-    coordenador varchar(20)
-    ) auto_increment = 100;
-    
-insert into curso(nome, coordenador)
+-- Criando a tabela curso, com os campos codigo, nome e coordenador
+-- sendo codigo chave primaria e auto_increment (começando de 100)
+create table curso (
+   codigo int primary key auto_increment,
+   nome varchar(10),
+   coordenador varchar(20)
+   ) auto_increment = 100;
+   
+-- Inserindo dados na tabela curso
+insert into curso (nome, coordenador)
 	values ('ADS', 'Gerson'),
-			('BD', 'Marise'),
-			('Redes', 'Alex');
-    
-alter table Aluno add codCurso int,
-	add foreign key(codCurso) references curso(codigo);    
+		   ('BD', 'Marise'),
+           ('Redes', 'Alex');
+           
+-- Visualizando os dados da tabela curso
+select * from curso; 
 
+-- Acrescentando uma coluna chamada codCurso na tabela Aluno
+-- e configurando para que ela seja chave estrangeira para a tabela curso, coluna codigo
+alter table Aluno add codCurso int,
+      add foreign key(codCurso) references curso(codigo); 
+
+-- Visualizando os dados da tabela curso
+select * from curso; 
+
+-- Atualizando a tabela Aluno, o codCurso = 100 (ADS) para os alunos de RA 52000, 52003, 52018 
 update Aluno set codCurso = 100
-	where ra in (52000, 52003, 52018);
-    
+      where ra in (52000, 52003, 52018);      
+
+-- Visualizando os dados da tabela curso
+select * from Aluno; 
+
+-- Atualizando a tabela Aluno, o codCurso = 101 (BD) para o alunos de RA 52001 
 update Aluno set codCurso = 101
-	where ra = 52001;
-    
-update Aluno set codcurso = 102
-	where ra in (52056, 52057);
-    
-select * from Aluno, curso where codCurso = codigo;
+      where ra= 52001;  
+
+-- Atualizando a tabela Aluno, o codCurso = 102 (Redes) para os alunos de RA 52056, 52057
+update Aluno set codCurso = 102
+      where ra in (52056, 52057);      
+
+-- Visualizando todos os dados da tabela Aluno e da tabela curso
+select * from Aluno,curso; 
+
+-- Visualizando todos os dados da tabela Aluno e da tabela curso
+-- de forma que cada aluno seja listado com os dados do seu curso respectivo
+select * from Aluno,curso
+    where codCurso = codigo;         

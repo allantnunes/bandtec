@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>e7 - Suzi Juros</title>
+</head>
+<body>
+    <script>
+        function calcularJuros(){
+            var tempo = Math.abs(document.getElementById("meses").value);
+            if(tempo == 0){
+                alert("Por favor, digite um número diferente de 0, para funcionamento correto o programa.");
+            }
+            var capital = 1275.00;
+            var taxa = capital * 0.01;
+            var montante = capital + (taxa * tempo);
+            var juros = montante - capital;
+
+            document.getElementById("output").innerHTML = "Capital: R$"+capital+"<br>Tempo de empréstimo: "+tempo+" meses.<br>Juros: "+taxa+" ao mês. - Totalizando: R$"+juros+"<br>Montante: R$"+montante;
+        }
+    </script>
+    <h3>e7 - Suzi Juros</h3>
+        <p>Suzi pegou R$ 1275,00 emprestados de seu irmão Lúcio para 
+            pagar só quando puder. Como Lúcio é muito bonzinho com sua irmã, 
+            ele vai cobrar o empréstimo como juros simples a taxa de 1% ao mês. 
+            Faça um programa que solicite a quantidade de meses que demorou para 
+            ser efetuado o pagamento. Depois exiba o montante da dívida.<br><br>
+            
+            <u>MONTANTE = CAPITAL + ( TAXA * TEMPO )</u><br><br>
+            
+            Faça :<br>
+            
+            1) ICA<br>
+            
+            2) DAT<br>
+            
+            3) JS<br>
+            
+            4) Testes<br>
+            
+            </p><hr>
+    
+            <label>Meses: </label><input type="number" id="meses"><br><br>
+
+            <p id="output"></p>
+            <button onclick="calcularJuros()">Calcular Juros</button>
+
+</body>
+</html>
