@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>202 - Exercício Complementar</title>
+    <script>
+        var notas = new Array();
+        var notasNegativas = new Array();
+        var notasPositivos = new Array();
+        
+        function verificarNotas(){
+        
+            for(var i = 0; i < 7; i++){
+                var notaTemp = document.getElementById("n"+(i+1)).value;
+                notas[i] = notaTemp;
+                if(notaTemp < 0){
+                    notasNegativas[i] = notaTemp;
+                }
+                if(notaTemp >= 0){
+                    notasPositivos[i] = notaTemp;
+                }
+            }
+
+            for(i = 0; i < notasNegativas.length; i++){
+                alert(notasNegativas[i]);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p>202. A srta. Marcy participa de um concurso de moda devido a sua beleza inigualável. No entanto, ao fim do
+        concurso todas as participantes recebem notas, de valor inteiro, positivas (máx.: 5) e negativas (Max.: -5) de
+        acordo com os critérios do concurso. Agora a srta. Marcy está lhe recrutando para que você faça um programa
+        para ela que mostre o saldo de notas negativas, positivas e a soma entre ambos os lados. Então leia as 7 notas
+        e separe-as entre os lados negativos e positivos para depois efetuar o cálculo.</p><br>
+    <hr>
+    <h3>-- Concurso de Moda -- </h3><br>
+    Nota 1. <input type="number" maxlength="1" id="n1"><br>
+    Nota 2. <input type="number" maxlength="1" id="n2"><br>
+    Nota 3. <input type="number" maxlength="1" id="n3"><br>
+    Nota 4. <input type="number" maxlength="1" id="n4"><br>
+    Nota 5. <input type="number" maxlength="1" id="n5"><br>
+    Nota 6. <input type="number" maxlength="1" id="n6"><br>
+    Nota 7. <input type="number" maxlength="1" id="n7"><br><br>
+    <button onclick="verificarNotas()">Verificar Notas</button>
+</body>
+
+</html>

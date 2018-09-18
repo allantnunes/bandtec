@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 14</title>
+    <script>
+        var pesoPeixe;
+        var pesoRef = parseFloat(50);
+        var multaRef = parseFloat(4);
+        var multa;
+
+        //Se o peso do peixe for menor que 51kg, não há multa
+        function calcularMulta(){
+            pesoPeixe = document.getElementById("pesoPeixe").value;
+
+            if(pesoPeixe < (pesoRef+1)){
+                document.getElementById("resultado").innerHTML = "Não há multa para este peixe."
+            } else if (pesoPeixe >= (pesoRef+1) && pesoPeixe < 100){
+                var valorExc = Math.abs(pesoPeixe - pesoRef);
+                multa = parseFloat(valorExc * multaRef);
+                document.getElementById("resultado").innerHTML = "Multa: R$ "+multa;
+            } else if (pesoPeixe <= 0 || pesoPeixe >= 101){
+                document.getElementById("resultado").innerHTML = "Erro! o peso do peixe está fora dos parametros";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Aula 14</h3>
+    <p>João Papo-de-Pescador, homem de bem, comprou um microcomputador para 
+        controlar o rendimento diário de seu trabalho. Toda vez que ele traz 
+        um peso de peixe maior que o estabelecido pelo regulamento de pesca 
+        do Estado de São Paulo (50 quilos) deve pagar uma multa de R$ 4,00 
+        por quilo excedente. João precisa que você faça um programa que recebe 
+        o peso de um peixe e verifique se há excesso. Se houver, você deve 
+        exibir o valor da multa que João deverá pagar por este peixe.</p>
+    <hr>
+    <label>Peso do Peixe: </label><input type="text" id="pesoPeixe"> <br>
+    <button onclick="calcularMulta()">Multa do Dia</button> <br>
+
+    <p id="resultado"></p>
+</body>
+</html>
