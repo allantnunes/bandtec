@@ -8,25 +8,44 @@
     <title>202 - Exercício Complementar</title>
     <script>
         var notas = new Array();
-        var notasNegativas = new Array();
-        var notasPositivos = new Array();
-        
+  
         function verificarNotas(){
-        
+            var outputNegativa = "";
+            var outputPositiva = "";
+            var outputSoma;
             for(var i = 0; i < 7; i++){
-                var notaTemp = document.getElementById("n"+(i+1)).value;
-                notas[i] = notaTemp;
-                if(notaTemp < 0){
-                    notasNegativas[i] = notaTemp;
-                }
-                if(notaTemp >= 0){
-                    notasPositivos[i] = notaTemp;
+                var notaTemp = parseInt(document.getElementById("n"+(i+1)).value);
+                if(isNaN(notaTemp)){
+                    alert("Por favor corrija a Nota número "+(i+1));
+                }else{
+                    notas[i] = notaTemp;
                 }
             }
 
-            for(i = 0; i < notasNegativas.length; i++){
-                alert(notasNegativas[i]);
+            for(var i = 0; i < notas.length; i++){
+
+                //Concatenação NEGATIVAS
+                if(notas[i] < 0){
+                    outputNegativa = outputNegativa + "Nota "+(i+1)+": "+notas[i] + "<br>"; 
+                }
+
+                //Concatenação POSITIVAS
+                if(notas[i] >= 0){
+                    outputPositiva = outputPositiva + "Nota "+(i+1)+": "+notas[i] + "<br>"; 
+                }   
+                outputSoma = outputSoma + parseInt(notas[i]);
             }
+
+            document.getElementById("outputNegativa").innerHTML = outputNegativa;
+            document.getElementById("outputPositiva").innerHTML = outputPositiva;
+            if(isNaN(outputSoma)){
+                document.getElementById("outputSoma").innerHTML = "<h3>Nota final: Corrija as notas para efetuar o cálculo. </h3>"    
+            }else{
+                document.getElementById("outputSoma").innerHTML = "<h3>Nota final: "+outputSoma+"</h3>"
+            }
+            // for(i = 0; i < notas.length; i++){
+            //     alert(notas[i]);
+            // }
         }
     </script>
 </head>
@@ -46,7 +65,21 @@
     Nota 5. <input type="number" maxlength="1" id="n5"><br>
     Nota 6. <input type="number" maxlength="1" id="n6"><br>
     Nota 7. <input type="number" maxlength="1" id="n7"><br><br>
-    <button onclick="verificarNotas()">Verificar Notas</button>
+    <button onclick="verificarNotas()">Verificar Notas</button><br>
+    <hr>
+    <div style="orientation: landscape;">
+        <h3 style="color:#ff0000">Notas negativas:</h3><br>
+        <p id="outputNegativa" style="color:#ff0000"></p><br>
+    </div>
+
+    <div>
+        <h3 style="color:#0000ff">Notas positivas:</h3><br>
+        <p id="outputPositiva" style="color:#0000ff"></p><br>
+    </div>
+    <div>
+        <p id="outputSoma" style="color:green"></p>
+    </div>
+    
 </body>
 
 </html>
