@@ -12,7 +12,7 @@
         function verificarNotas(){
             var outputNegativa = "";
             var outputPositiva = "";
-            var outputSoma;
+            var outputSoma = 0;
             for(var i = 0; i < 7; i++){
                 var notaTemp = parseInt(document.getElementById("n"+(i+1)).value);
                 if(isNaN(notaTemp)){
@@ -24,6 +24,8 @@
 
             for(var i = 0; i < notas.length; i++){
 
+                outputSoma = outputSoma + parseInt(notas[i]);
+
                 //Concatenação NEGATIVAS
                 if(notas[i] < 0){
                     outputNegativa = outputNegativa + "Nota "+(i+1)+": "+notas[i] + "<br>"; 
@@ -33,16 +35,13 @@
                 if(notas[i] >= 0){
                     outputPositiva = outputPositiva + "Nota "+(i+1)+": "+notas[i] + "<br>"; 
                 }   
-                outputSoma = outputSoma + parseInt(notas[i]);
+                
             }
 
             document.getElementById("outputNegativa").innerHTML = outputNegativa;
             document.getElementById("outputPositiva").innerHTML = outputPositiva;
-            if(isNaN(outputSoma)){
-                document.getElementById("outputSoma").innerHTML = "<h3>Nota final: Corrija as notas para efetuar o cálculo. </h3>"    
-            }else{
-                document.getElementById("outputSoma").innerHTML = "<h3>Nota final: "+outputSoma+"</h3>"
-            }
+            document.getElementById("outputSoma").innerHTML = "<h3>Nota final: "+outputSoma+"</h3>"
+            
             // for(i = 0; i < notas.length; i++){
             //     alert(notas[i]);
             // }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 0;
+        var b = 0;
+        var c = 0;
+        function tirarSorte(){
+            var numeroSelecionado = document.getElementById("numeroSelecionado").value;
+            
+            switch(numeroSelecionado){
+                case 'a':
+                    a = a + 1;
+                    document.getElementById("outputA").innerHTML = "A = " + a;
+                    break;
+                case 'b':
+                    b++;
+                    document.getElementById("outputB").innerHTML = "B = " + b;
+                    break;
+                case 'c':
+                    c = c + 1;
+                    document.getElementById("outputC").innerHTML = "C = " + c;
+                    break;
+            }
+
+            document.getElementById("output").innerHTML = sorte;
+        }
+    </script>
+    
+    <h3>Digite: [a,b,c] </h3><input type="text" id="numeroSelecionado"> 
+    <p id="outputA">A = 0</p><br>
+    <p id="outputB">B = 0</p><br>
+    <p id="outputC">C = 0</p><br>
+    <button onclick="tirarSorte()">Butao</button>
+</body>
+</html>

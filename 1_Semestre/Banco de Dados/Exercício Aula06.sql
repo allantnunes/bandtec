@@ -51,4 +51,20 @@ select * from instituicao;
 
 update instituicao set bairro = 'Parque Santo Antonio' where codInst = 4;
 
+select * from Aluno;
 
+select * from Empresa;
+
+update Aluno set codEmp = 10 where RA = 52001;
+update Aluno set codEmp = 6,codInst = 1 where RA = 52000;
+
+insert into Aluno (nome, email, telefone, hobby) values
+	('Vinicius Ruiz', 'vinicius@email.com', 996823608, 'Jogar');
+    
+    
+update Aluno set codEmp = 8, codInst = 4 where RA = 52005;
+update Aluno set codEmp = 6, codInst = 3 where RA = 52006;
+update Aluno set codInst = 2 where RA = 52001;
+update Aluno set codEmp = 1, codInst = 2 where RA = 52002;
+update Aluno set codEmp = 3, codInst = 2 where RA = 52003;
+update Aluno set codEmp = 7, codInst = 2 where RA = 52004;
