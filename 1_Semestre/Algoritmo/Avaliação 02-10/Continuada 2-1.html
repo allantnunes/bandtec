@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Continuada 2-1</title>
+    <!--
+        02/10/2018 - Algoritmos
+        Profº Daniel Gatti
+
+        Continuada 2-1
+        Allan Tavares Nunes - RA: 52001
+    -->
+    <script>
+
+        function finalizarEleicao() {
+
+            var totalVotos = 0;
+            var totalVotosValidos = 0;
+
+            //Adquirindo valores dos inputs
+            var votoChapa1 = parseInt(document.getElementById("votoChapa1").value);
+            var votoChapa2 = parseInt(document.getElementById("votoChapa2").value);
+            var votoChapa3 = parseInt(document.getElementById("votoChapa3").value);
+            var votoBranco = parseInt(document.getElementById("votoBranco").value);
+            var votoNulo = parseInt(document.getElementById("votoNulo").value);
+
+            //Verificação dos valores
+            if (isNaN(votoBranco) || votoBranco < 0) {
+                erroCampo("VOTOS BRANCOS.");
+                return;
+            } else if (isNaN(votoNulo) || votoNulo < 0) {
+                erroCampo("VOTOS NULOS.");
+                return;
+            } else if (isNaN(votoChapa1) || votoChapa1 < 0) {
+                erroCampo("VOTOS CHAPA ALCATEC.");
+                return;
+            } else if (isNaN(votoChapa2) || votoChapa2 < 0) {
+                erroCampo("VOTOS CHAPA CONECTE-SE.");
+                return;
+            } else if (isNaN(votoChapa3) || votoChapa3 < 0) {
+                erroCampo("VOTOS CHAPA PLURAL.");
+                return;
+            }
+
+            //Somando votos totais e válidos
+            totalVotos = votoBranco + votoNulo + votoChapa1 + votoChapa2 + votoChapa3;
+            totalVotosValidos = votoChapa1 + votoChapa2 + votoChapa3;
+
+            //Enviando outputs
+            document.getElementById("outputTotalVotos").innerHTML = totalVotos;
+            document.getElementById("outputTotalVotosValidos").innerHTML = totalVotosValidos;
+            document.getElementById("outputVotoBranco").innerHTML = votoBranco;
+            document.getElementById("outputVotoNulo").innerHTML = votoNulo;
+
+            document.getElementById("outputChapa1").innerHTML = porcentagemVotos(votoChapa1);
+            document.getElementById("outputChapa2").innerHTML = porcentagemVotos(votoChapa2);
+            document.getElementById("outputChapa3").innerHTML = porcentagemVotos(votoChapa3);
+
+            document.getElementById("outputVencedor").innerHTML = vencedorEleicao();
+
+            //Exibindo div do Resultado da Eleição
+            document.getElementById("divResultadoEleicao").hidden = false;
+
+            //Calculo de porcentagem
+            function porcentagemVotos(votos) {
+                var porcentagem = ((votos / totalVotosValidos) * 100);
+                return votos+" ("+parseFloat(porcentagem.toFixed(2))+"% dos votos válidos)";
+            }
+
+            //Verificação do vencedor
+            function vencedorEleicao() {
+                var vencedor;
+
+                if ((votoChapa1 > votoChapa2) && (votoChapa1 > votoChapa3)) {
+                    vencedor = "ALCATEC";
+                } else if ((votoChapa2 > votoChapa1) && (votoChapa2 > votoChapa3)) {
+                    vencedor = "CONECTE-SE";
+                } else if ((votoChapa3 > votoChapa1) && (votoChapa3 > votoChapa2)) {
+                    vencedor = "PLURAL";
+                }else{
+                    vencedor = "ATENÇÃO! A eleição não teve vencedor. Será realizada uma nova votação.";
+                }
+
+                return vencedor;
+            }
+
+            //Tratamento de erros
+            function erroCampo(campoErro) {
+                alert("Valor inválido. Verifique o seguinte campo: " + campoErro);
+            }
+        }
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <div>
+        <h3><b>Grêmio estudantil - Bandtec</b></h3>
+        <h5>Insira a quantidade de votos:</h5>
+        <table>
+            <tr>
+                <td><label>ALCATEC:</label></td>
+                <td><input type="number" id="votoChapa1" min="0" style="width:169px;"></td>
+            </tr>
+            <tr>
+                <td><label>CONECTE-SE:</label></td>
+                <td><input type="number" id="votoChapa2" min="0" style="width:169px;"></td>
+            </tr>
+            <tr>
+                <td><label>PLURAL:</label></td>
+                <td><input type="number" id="votoChapa3" min="0" style="width:169px;"></td>
+            </tr>
+            <tr>
+                <td><label>VOTOS BRANCOS:</label></td>
+                <td><input type="number" id="votoBranco" min="0" style="width:169px;"></td>
+            </tr>
+            <tr>
+                <td><label>VOTOS NULOS:</label></td>
+                <td><input type="number" id="votoNulo" min="0" style="width:169px;"></td>
+            </tr>
+        </table>
+        <button onclick="finalizarEleicao()" style="background-color:#ff3030;">Finalizar Eleição</button>
+    </div>
+
+    <hr>
+
+    <div hidden="true" id="divResultadoEleicao">
+        <h4><b>Resultado da Eleição para o Grêmio BANDTEC</b></h4>
+        <table>
+            <tr>
+                <td>Total de Votos:</td>
+                <td id="outputTotalVotos"></td>
+            </tr>
+            <tr>
+                <td>Total de Votos Válidos:</td>
+                <td id="outputTotalVotosValidos"></td>
+            </tr>
+            <tr>
+                <td>Votos Brancos:</td>
+                <td id="outputVotoBranco"></td>
+            </tr>
+            <tr>
+                <td>Votos Nulos:</td>
+                <td id="outputVotoNulo"></td>
+            </tr>
+            <tr>
+                <td>Votos para Chapa 1 - ALCATEC:</td>
+                <td id="outputChapa1"></td>
+            </tr>
+            <tr>
+                <td>Votos para Chapa 2 - CONECTE-SE:</td>
+                <td id="outputChapa2"></td>
+            </tr>
+            <tr>
+                <td>Votos para Chapa 3 - PLURAL:</td>
+                <td id="outputChapa3"></td>
+            </tr>
+            <tr>
+                <td>Vencedor:</td>
+                <td id="outputVencedor"></td>
+            </tr>
+        </table>
+    </div>
+
+
+
+</body>
+
+</html>

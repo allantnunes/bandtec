@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tinder Geek</title>
+    <script>
+
+        var nvConversa;
+        var qntdLivros;
+        var qntdJogos;
+        var qntdNamoradxs;
+
+        function analisarPerfil() {
+
+            //Captura dos valores
+            nvConversa = parseInt(document.getElementById("nvConversa").value);
+            qntdLivros = parseInt(document.getElementById("qntdLivros").value);
+            qntdJogos = parseInt(document.getElementById("qntdJogos").value);
+            qntdNamoradxs = parseInt(document.getElementById("qntdNamoradxs").value);
+
+            //Verificação dos valores
+            if (isNaN(nvConversa) || nvConversa < 0 || nvConversa > 10) {
+                erroCampo("Nível de conversa");
+                return;
+            } else if (isNaN(qntdLivros) || qntdLivros < 0) {
+                erroCampo("Quantidade de Livros");
+                return;
+            } else if (isNaN(qntdJogos) || qntdJogos < 0) {
+                erroCampo("Quantidade de Jogos");
+                return;
+            } else if (isNaN(qntdNamoradxs) || qntdNamoradxs < 0) {
+                erroCampo("Quantidade de Namoradxs");
+                return;
+            }
+            
+            document.getElementById("output1").innerHTML = bomDeConversa(nvConversa);
+            document.getElementById("output2").innerHTML = cultaOuGamer(qntdLivros);
+            document.getElementById("output3").innerHTML = cultaOuGamer(qntdJogos);
+            document.getElementById("output4").innerHTML = dificilConquistar(qntdNamoradxs);
+
+
+            document.getElementById("divRelatorio").hidden = false;
+        }
+
+        function bomDeConversa(dado) {
+            if (dado >= 6) {
+                return "Sim";
+            } else if (dado < 6) {
+                return "Não";
+            }
+        }
+
+        function cultaOuGamer(dado) {
+            if (dado >= 10) {
+                return "Sim";
+            } else if (dado < 10) {
+                return "Não";
+            }
+        }
+
+        function dificilConquistar(dado) {
+            if (dado < 3) {
+                return "Sim";
+            } else if (dado >= 3) {
+                return "Não";
+            }
+        }
+
+        //Tratamento de erros
+        function erroCampo(campoErro) {
+            alert("Valor inválido. Verifique o seguinte campo: " + campoErro);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h3>Tinder Geek</h3>
+        <table>
+            <tr>
+                <td><label>Qual seu nível de conversa?</label></td>
+                <td><input type="number" id="nvConversa" min="0" max="10" style="width:169px;"> (0-10)</td>
+            </tr>
+            <tr>
+                <td><label>Quantos livros já leu?</label></td>
+                <td><input type="number" id="qntdLivros" min="0"> (mínimo de 0)</td>
+            </tr>
+            <tr>
+                <td><label>Quantos jogos de celular, playstation ou xbox já jogou?</label></td>
+                <td><input type="number" id="qntdJogos" min="0"> (mínimo de 0)</td>
+            </tr>
+            <tr>
+                <td><label>Quantos namorados(as) ou ficantes já teve?</label></td>
+                <td><input type="number" id="qntdNamoradxs" min="0"> (mínimo de 0)</td>
+            </tr>
+        </table>
+        <button onclick="analisarPerfil()">Analisar Perfil</button>
+    </div>
+    <hr>
+    <div hidden="true" id="divRelatorio" style="width:100%">
+        <div style="float: left; width: 50%;">
+            <h4>Relatório:</h4>
+            <table>
+                <tr>
+                    <td>Boa de conversa?</td>
+                    <td id="output1"></td>
+                </tr>
+                <tr>
+                    <td>Culta?</td>
+                    <td id="output2"></td>
+                </tr>
+                <tr>
+                    <td>Curte um videogame?</td>
+                    <td id="output3"></td>
+                </tr>
+                <tr>
+                    <td>Difícil conquistar?</td>
+                    <td id="output4"></td>
+                </tr>
+            </table>
+        </div>
+        <div style="float: left; width: 50%;">
+            <h4>Verifique sua compatilibidade:</h4>
+            <table>
+                <tr>
+                    <td>Boa de conversa?</td>
+                    <td>
+                        Sim<input type="radio" name="conversaBoa" value="sim">    
+                        Não<input type="radio" name="conversaBoa" value="nao">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Culta?</td>
+                    <td>
+                        Sim<input type="radio" name="culta" value="sim">    
+                        Não<input type="radio" name="culta" value="nao">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gamer?</td>
+                    <td>
+                        Sim<input type="radio" name="gamer" value="sim">    
+                        Não<input type="radio" name="gamer" value="nao">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Difícil conquistar?</td>
+                    <td>
+                        Sim<input type="radio" name="dificil" value="sim">    
+                        Não<input type="radio" name="dificil" value="nao">
+                    </td>
+                </tr>
+            </table>
+            <button>Verificar compatilibidade</button>
+        </div>
+    </div>
+    
+
+
+</body>
+
+</html>

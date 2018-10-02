@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Continuada 2-2</title>
+    <!--
+        02/10/2018 - Algoritmos
+        Profº Daniel Gatti
+
+        Continuada 2-2
+        Allan Tavares Nunes - RA: 52001
+    -->
+    <script>
+
+        function analisarAtleta() {
+
+            var nvForca;
+            var vlOxigenacao;
+            var nEsportes;
+            var nMedalhas;
+
+            var forte;
+            var corrida;
+            var subAtleta;
+            var competidor;
+
+            //Captura dos valores
+            nvForca = parseInt(document.getElementById("nvForca").value);
+            vlOxigenacao = parseInt(document.getElementById("vlOxigenacao").value);
+            nEsportes = parseInt(document.getElementById("nEsportes").value);
+            nMedalhas = parseInt(document.getElementById("nMedalhas").value);
+
+            //Verificação dos valores
+            if (isNaN(nvForca) || nvForca < 0 || nvForca > 10) {
+                erroCampo("Nível de Força.");
+                return;
+            } else if (isNaN(vlOxigenacao) || vlOxigenacao < 0 || vlOxigenacao > 100) {
+                erroCampo("Valor de Oxigenação.");
+                return;
+            } else if (isNaN(nEsportes) || nEsportes < 0) {
+                erroCampo("Quantidade de Esportes praticados.");
+                return;
+            } else if (isNaN(nMedalhas) || nMedalhas < 0) {
+                erroCampo("Quantidade de Medalhas ganhas.");
+                return;
+            }
+            
+            //Alimentando outputs usando as funções de delimitações
+            document.getElementById("outputForca").innerHTML = isForte(nvForca);
+            document.getElementById("outputCorrida").innerHTML = isBoaCorrida(vlOxigenacao);
+            document.getElementById("outputSubAtleta").innerHTML = isSubAtleta(nEsportes);
+            document.getElementById("outputCompetidor").innerHTML = isSuperCompetidor(nMedalhas);
+            
+            //Forte e Bom de Corrida?
+            if (forte == true && corrida && true) {
+                document.getElementById("outputFC").innerHTML = "Sim";
+            } else {
+                document.getElementById("outputFC").innerHTML = "Não"
+            }
+
+            //Forte e Sub Atleta?
+            if (forte == true && subAtleta && true) {
+                document.getElementById("outputFSA").innerHTML = "Sim";
+            } else {
+                document.getElementById("outputFSA").innerHTML = "Não";
+            }
+
+            //Não é bom de corrida e ainda é Sub Atleta?
+            if (corrida == false && subAtleta && true) {
+                document.getElementById("outputNCSA").innerHTML = "Sim";
+            } else {
+                document.getElementById("outputNCSA").innerHTML = "Não";
+            }
+            
+            //Veredito
+            if(forte == true && corrida == true && subAtleta == false && competidor == true){
+                document.getElementById("outputVeredito").innerHTML = "Sim";
+            }else{
+                document.getElementById("outputVeredito").innerHTML = "Não";
+            }
+
+            //Exibindo a Div escondida
+            document.getElementById("divPerfil").hidden = false;
+
+            //Funções de delimitações
+            function isForte(dado) {
+                if (dado > 6) {
+                    forte = true;
+                    return "Sim";
+                } else if (dado <= 6) {
+                    forte = false;
+                    return "Não";
+                }
+            }
+
+            function isBoaCorrida(dado) {
+                if (dado >= 70) {
+                    corrida = true;
+                    return "Sim";
+                } else if (dado < 70) {
+                    corrida = false;
+                    return "Não";
+                }
+            }
+
+            function isSubAtleta(dado) {
+                if (dado < 5) {
+                    subAtleta = true;
+                    return "Sim";
+                } else if (dado >= 5) {
+                    subAtleta = false;
+                    return "Não";
+                }
+            }
+
+            function isSuperCompetidor(dado) {
+                if (dado > 4) {
+                    competidor = true;
+                    return "Sim";
+                } else if (dado <= 4) {
+                    competidor = false;
+                    return "Não";
+                }
+            }
+
+            //Tratamento de erros
+            function erroCampo(campoErro) {
+                alert("Valor inválido. Verifique o seguinte campo: " + campoErro);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <h3><b>Atleta 4.0</b></h3>
+        <h5>Preencha os campos de acordo com seu limite determinado ao lado:</h5>
+        <table>
+            <tr>
+                <td><label>Nível de força?: </label></td>
+                <td><input type="number" id="nvForca" min="0" max="10" style="width:169px;">(0-10)</td>
+            </tr>
+            <tr>
+                <td><label>Valor de Oxigenação?: </label></td>
+                <td><input type="number" id="vlOxigenacao" min="0" max="100" style="width:169px;">(0-100)</td>
+            </tr>
+            <tr>
+                <td><label>Quantos esportes pratica?: </label></td>
+                <td><input type="number" id="nEsportes" min="0" style="width:169px;">(mínimo de 0)</td>
+            </tr>
+            <tr>
+                <td><label>Quantas medalhas já ganhou?: </label></td>
+                <td><input type="number" id="nMedalhas" min="0" style="width:169px;">(mínimo de 0)</td>
+            </tr>
+        </table>
+        <button onclick="analisarAtleta()" style="background-color:#ff3030;">Analisar Atleta</button>
+    </div>
+    <hr>
+    <div hidden="true" id="divPerfil">
+        <div style="float: left; width: 50%;">
+            <h4><b>Atleta 4.0 - Perfil:</b></h4>
+            <table>
+                <tr>
+                    <td>Forte?</td>
+                    <td id="outputForca"></td>
+                </tr>
+                <tr>
+                    <td>Bom de corrida?</td>
+                    <td id="outputCorrida"></td>
+                </tr>
+                <tr>
+                    <td>É Sub Atleta?</td>
+                    <td id="outputSubAtleta"></td>
+                </tr>
+                <tr>
+                    <td>É Super Competidor?</td>
+                    <td id="outputCompetidor"></td>
+                </tr>
+                <tr>
+                    <td>Forte e Bom de Corrida?</td>
+                    <td id="outputFC"></td>
+                </tr>
+                <tr>
+                    <td>Forte e Sub Atleta?</td>
+                    <td id="outputFSA"></td>
+                </tr>
+                <tr>
+                    <td>Não é bom de corrida e ainda é Sub Atleta?</td>
+                    <td id="outputNCSA"></td>
+                </tr>
+                <tr>
+                    <td><b>Veredito:</b></td>
+                    <td>Para ser um atleta do futuro tem que ser forte, bom de corrida, não ser sub atleta e ser super
+                        competidor.</td>
+                </tr>
+                <tr>
+                    <td><b>É o caso?</b></td>
+                    <td id="outputVeredito"></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</body>
+
+</html>
